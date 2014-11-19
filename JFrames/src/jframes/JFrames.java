@@ -41,7 +41,7 @@ public class JFrames {
 	sFrame2.setForeground(Color.BLACK);
 	sFrame2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	//set location immediately below sFrame1 
-	sFrame2.setLocation(new Point(100,200));
+	sFrame2.setLocation(new Point(100,220));
 	//dimension redundant with Frame.pack() ??
 	//sFrame2.setSize(new Dimension(300, 100));
 	sFrame2.setTitle("Simple Frame 2");
@@ -95,6 +95,69 @@ public class JFrames {
 	
 	sFrame4.pack();
 	sFrame4.setVisible(true);
+	
+	//---------------------------------
+	
+	//telephone keypad GUI
+	JFrame tFrame = new JFrame("Telephone");
+	tFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	tFrame.setSize(new Dimension(250, 200));
+	tFrame.setLocation(new Point(100, 520));
+	tFrame.setLayout(new BorderLayout());
+	
+	//main phone buttons
+	JPanel centerPanel = new JPanel(new GridLayout(4,3));
+	for (int i = 1; i <= 9; i++) {
+	    centerPanel.add(new JButton("" + i));
+	}
+	centerPanel.add(new JButton("*"));
+	centerPanel.add(new JButton("0"));
+	centerPanel.add(new JButton("#"));
+	
+	tFrame.add(centerPanel, BorderLayout.CENTER);
+	
+	//south status panel
+	JPanel southPanel = new JPanel(new FlowLayout());
+	southPanel.add(new JLabel("Number to dial: "));
+	southPanel.add(new JTextField(10));
+	tFrame.add(southPanel, BorderLayout.SOUTH);
+	
+	tFrame.setVisible(true);
+	
+	//---------------------------------
+	
+	//Send message panel
+	JFrame mFrame = new JFrame("Send Message");
+	mFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	mFrame.setSize(new Dimension(400, 250));
+	mFrame.setLocation(new Point(500, 100));
+	mFrame.setLayout(new BorderLayout());
+	
+	JPanel northEast = new JPanel(new GridLayout(3,1));
+	northEast.add(new JButton("Browse..."));
+	northEast.add(new JButton("Browse..."));
+	
+	JPanel northCenter = new JPanel(new GridLayout(3,1));
+	northCenter.add(new JTextField());
+	northCenter.add(new JTextField());
+	northCenter.add(new JTextField());
+	
+	JPanel northWest = new JPanel(new GridLayout(3,1));
+	northWest.add(new JLabel("From: "));
+	northWest.add(new JLabel("To: "));
+	northWest.add(new JLabel("Subject: "));
+	
+	JPanel north = new JPanel(new BorderLayout());
+	north.add(northWest, BorderLayout.WEST);
+	north.add(northCenter, BorderLayout.CENTER);
+	north.add(northEast, BorderLayout.EAST);
+	
+	mFrame.add(north, BorderLayout.NORTH);
+	mFrame.add(new JTextField(), BorderLayout.CENTER);
+	mFrame.add(new JButton("Send"), BorderLayout.SOUTH);
+	
+	mFrame.setVisible(true);
+	
     }
     
 }
